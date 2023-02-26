@@ -20,10 +20,6 @@ spec:
       enabled: false
     cstor:
       enabled: true
-      csiNode:
-        tolerations:
-          - key: "thin-client"
-            operator: "Exists"
     # Required when using the same device that hosts the OS FS partition
     openebs-ndm:
       enabled: true
