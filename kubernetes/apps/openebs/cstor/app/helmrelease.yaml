@@ -2,13 +2,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: cstor
+  name: openebs-cstor
   namespace: openebs
 spec:
   interval: 5m
   chart:
     spec:
-      chart: cstor
+      chart: openebs
       version: 3.4.0
       sourceRef:
         kind: HelmRepository
