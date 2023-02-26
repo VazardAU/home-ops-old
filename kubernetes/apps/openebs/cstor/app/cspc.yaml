@@ -1,0 +1,29 @@
+---
+apiVersion: cstor.openebs.io/v1
+kind: CStorPoolCluster
+metadata:
+  name: rust-pool
+  namespace: openebs
+spec:
+  pools:
+    - nodeSelector:
+        kubernetes.io/hostname: "kube-wk01.strallow.cloud"
+      dataRaidGroups:
+        - blockDevices:
+            - blockDeviceName: "blockdevice-7ca0abda235d55fde3f9cd266c38bb8c"
+      poolConfig:
+        dataRaidGroupType: "stripe"
+    - nodeSelector:
+        kubernetes.io/hostname: "kube-wk02.strallow.cloud"
+      dataRaidGroups:
+        - blockDevices:
+            - blockDeviceName: "blockdevice-95913db63a9474c2c9bbee838563b5cc"
+      poolConfig:
+        dataRaidGroupType: "stripe"
+    - nodeSelector:
+        kubernetes.io/hostname: "kube-wk03.strallow.cloud"
+      dataRaidGroups:
+        - blockDevices:
+            - blockDeviceName: "blockdevice-a5c4e2a732388333226a04ce96ba3dec"
+      poolConfig:
+        dataRaidGroupType: "stripe"

@@ -1,0 +1,13 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: cstor-rust-pool
+  annotations:
+    storageclass.kubernetes.io/is-default-class: 'false'
+provisioner: cstor.csi.openebs.io
+allowVolumeExpansion: true
+parameters:
+  cas-type: cstor
+  cstorPoolCluster: rust-pool
+  replicaCount: '2'
