@@ -10,4 +10,4 @@ allowVolumeExpansion: true
 parameters:
   cas-type: cstor
   cstorPoolCluster: rust-pool
-  replicaCount: '2'
+  replicaCount: '3'
