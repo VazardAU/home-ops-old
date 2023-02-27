@@ -20,6 +20,8 @@ spec:
       enabled: false
     cstor:
       enabled: true
+    nfs-provisioner:
+      enabled: true
     # Required when using the same device that hosts the OS FS partition
     openebs-ndm:
       enabled: true
