@@ -4,4 +4,3 @@ kind: Kustomization
 
 resources:
   - storageclass.yaml
-  - pvc.yaml
