@@ -25,5 +25,6 @@ spec:
       dataRaidGroups:
         - blockDevices:
             - blockDeviceName: "blockdevice-a5c4e2a732388333226a04ce96ba3dec"
+            - blockDeviceName: "blockdevice-48e9a99f5e7b0932ed0d1ec2745b0573"
       poolConfig:
         dataRaidGroupType: "stripe"
