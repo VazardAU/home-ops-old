@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nfs-services
+  namespace: networking
+data:
+  20490: "openebs/nfs-pvc-eb02f523-58d1-4ed8-a0d1-224479ab6549:2049"
