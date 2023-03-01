@@ -20,8 +20,41 @@ spec:
       enabled: false
     cstor:
       enabled: true
+
+    # openebs nfs provisioner configuration goes here
+    # ref - https://openebs.github.io/dynamic-nfs-provisioner
     nfs-provisioner:
       enabled: true
+
+      # Sample configuration if you want to configure lvm localpv with custom values.
+      # This is a small part of the full configuration. Full configuration available
+      # here - https://openebs.github.io/dynamic-nfs-provisioner
+
+    #  imagePullSecrets: []
+    #
+    #  rbac:
+    #    pspEnabled: false
+    #
+      nfsProvisioner:
+        image:
+          registry:
+          repository: openebs/provisioner-nfs
+          tag: 0.10.0
+          pullPolicy: IfNotPresent
+        enableLeaderElection: "true"
+        nfsServerAlpineImage:
+          registry:
+          repository: openebs/nfs-server-alpine
+          tag: 0.10.0
+        nfsStorageClass:
+          name: openebs-kernel-nfs
+          reclaimPolicy: Delete
+          nfsServerType: kernel
+          isDefaultClass: false
+          backendStorageClass: "cstor-rust-pool"
+        nfsServer:
+          useClusterIP: "true"
+          imagePullSecret: ""
     # Required when using the same device that hosts the OS FS partition
     openebs-ndm:
       enabled: true
