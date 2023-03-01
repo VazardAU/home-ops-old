@@ -28,3 +28,32 @@ spec:
             - blockDeviceName: "blockdevice-48e9a99f5e7b0932ed0d1ec2745b0573"
       poolConfig:
         dataRaidGroupType: "stripe"
+---
+apiVersion: cstor.openebs.io/v1
+kind: CStorPoolCluster
+metadata:
+  name: nvme-pool
+  namespace: openebs
+spec:
+  pools:
+    - nodeSelector:
+        kubernetes.io/hostname: "kube-wk01.strallow.cloud"
+      dataRaidGroups:
+        - blockDevices:
+            - blockDeviceName: "blockdevice-2f129b99b1c5710509a11c8483aa8b1a"
+      poolConfig:
+        dataRaidGroupType: "stripe"
+    - nodeSelector:
+        kubernetes.io/hostname: "kube-wk02.strallow.cloud"
+      dataRaidGroups:
+        - blockDevices:
+            - blockDeviceName: "blockdevice-5dd01b411b384e7bdc1770d36c58cb3d"
+      poolConfig:
+        dataRaidGroupType: "stripe"
+    - nodeSelector:
+        kubernetes.io/hostname: "kube-wk03.strallow.cloud"
+      dataRaidGroups:
+        - blockDevices:
+            - blockDeviceName: "blockdevice-b8dc1e3c87443e261836449bf6d61184"
+      poolConfig:
+        dataRaidGroupType: "stripe"
