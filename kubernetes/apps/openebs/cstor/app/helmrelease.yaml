@@ -55,6 +55,6 @@ spec:
         nfsServer:
           useClusterIP: "true"
           imagePullSecret: ""
-    # Required when using the same device that hosts the OS FS partition
+    # Required when using the same device that hosts the OS FS partitionn
     openebs-ndm:
       enabled: true
