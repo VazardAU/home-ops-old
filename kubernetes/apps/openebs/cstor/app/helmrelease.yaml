@@ -27,7 +27,7 @@ spec:
       enabled: true
 
       # Sample configuration if you want to configure lvm localpv with custom values.
-      # This is a small part of the full configuration. Full configuration available
+      # This is a  small part of the full configuration. Full configuration available
       # here - https://openebs.github.io/dynamic-nfs-provisioner
 
     #  imagePullSecrets: []
