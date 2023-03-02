@@ -37,8 +37,7 @@ spec:
       main:
         enabled: true
         annotations:
-          external-dns.home.arpa/enabled: "true"
-          cert-manager.home.arpa/enabled: "true"
+          cert-manager.io/cluster-issuer: letsencrypt-production
           hajimari.io/icon: mdi:home-assistant
         hosts:
           - host: &host home.${SECRET_DOMAIN}
@@ -82,9 +81,7 @@ spec:
         ingress:
           enabled: true
           annotations:
-            external-dns.home.arpa/enabled: "true"
-            cert-manager.home.arpa/enabled: "true"
-            auth.home.arpa/enabled: "true"
+            cert-manager.io/cluster-issuer: letsencrypt-production
             nginx.ingress.kubernetes.io/whitelist-source-range: |
               10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
             hajimari.io/appName: "Hass Config"
