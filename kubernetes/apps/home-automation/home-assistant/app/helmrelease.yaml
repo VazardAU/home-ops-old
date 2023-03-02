@@ -47,6 +47,7 @@ spec:
         tls:
           - hosts:
               - *host
+            secretName: hass-tls
     probes:
       liveness:
         enabled: false
