@@ -6,3 +6,4 @@ resources:
   - helmrelease.yaml
   - cspc.yaml
   - storageclass.yaml
+  - pvc.yaml

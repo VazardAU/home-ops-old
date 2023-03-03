@@ -6,6 +6,8 @@ metadata:
   namespace: default
 spec:
   interval: 15m
+  nodeSelector:
+    worker-node: true
   chart:
     spec:
       chart: hajimari
