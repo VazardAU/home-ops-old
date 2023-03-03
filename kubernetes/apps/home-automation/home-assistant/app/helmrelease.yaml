@@ -6,8 +6,7 @@ metadata:
   namespace: home-automation
 spec:
   interval: 10m
-  nodeSelector:
-    worker-node: true
+  nodeSelector: {"worker-node": "true"}
   chart:
     spec:
       chart: app-template
