@@ -4,6 +4,6 @@ kind: Kustomization
 
 resources:
   - helmrelease.yaml
-  - cspc.yaml
-  - storageclass.yaml
-  - pvc.yaml
+#  - cspc.yaml
+#  - storageclass.yaml
+#  - pvc.yaml
