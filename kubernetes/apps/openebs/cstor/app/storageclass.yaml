@@ -10,7 +10,7 @@ allowVolumeExpansion: true
 parameters:
   cas-type: cstor
   cstorPoolCluster: rust-pool
-  replicaCount: '3'
+  replicaCount: '1'
 ---
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
