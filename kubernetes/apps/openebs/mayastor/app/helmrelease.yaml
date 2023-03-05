@@ -18,5 +18,13 @@ spec:
   values:
     legacy:
       enabled: false
+    cstor:
+      enabled: false
+    ndm:
+      enabled: false
+    ndmOperator:
+      enabled: false
+    nfs-provisioner:
+      enabled: false
     mayastor:
       enabled: true
