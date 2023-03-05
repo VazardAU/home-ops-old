@@ -1,0 +1,9 @@
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: mayastor-pool-node1
+  namespace: mayastor
+spec:
+  node: kube-wk01.strallow.cloud
+  disks: ["aio:////dev/disk/by-uuid/10363411535996397998"]

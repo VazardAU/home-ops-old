@@ -18,3 +18,5 @@ spec:
   values:
     legacy:
       enabled: false
+    mayastor:
+      enabled: true
