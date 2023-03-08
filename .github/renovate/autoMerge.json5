@@ -1,13 +1,44 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "Auto merge GitHub Actions",
+      "description": "Auto Merge GitHub Actions",
       "matchManagers": ["github-actions"],
       "automerge": true,
       "automergeType": "branch",
-      "ignoreTests": true,
-      "matchUpdateTypes": ["minor", "patch", "digest"]
-    }
+      "requiredStatusChecks": null,
+      "matchUpdateTypes": ["minor", "patch"],
+    },
+    {
+      "description": "Auto Merge Pre-Commit",
+      "matchManagers": ["pre-commit"],
+      "automerge": true,
+      "automergeType": "branch",
+      "requiredStatusChecks": null,
+      "matchUpdateTypes": ["minor", "patch"],
+    },
+    {
+      "description": "Auto Merge Docker Image",
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "automergeType": "branch",
+      "requiredStatusChecks": null,
+      "matchUpdateTypes": ["minor", "patch"],
+    },
+    {
+      "description": "Auto Merge Helm",
+      "matchDatasources": ["helm"],
+      "automerge": true,
+      "automergeType": "branch",
+      "requiredStatusChecks": null,
+      "matchUpdateTypes": ["minor", "patch"],
+    },
+    {
+      "description": "Auto Merge Flux",
+      "matchManagers": ["flux"],
+      "automerge": true,
+      "automergeType": "branch",
+      "requiredStatusChecks": null,
+      "matchUpdateTypes": ["patch"],
+    },
   ]
 }
