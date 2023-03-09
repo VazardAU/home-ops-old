@@ -40,6 +40,8 @@ spec:
       namespaceSelector:
         matchNames:
           - default
+          - home-automation
+          - monitoring
     ingress:
       main:
         enabled: true
