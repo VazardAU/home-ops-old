@@ -7,3 +7,21 @@ metadata:
 spec:
   node: kube-wk01.strallow.cloud
   disks: ["/dev/nvme0n1"]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: mayastor-pool-node2
+  namespace: openebs
+spec:
+  node: kube-wk02.strallow.cloud
+  disks: ["/dev/nvme0n1"]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: mayastor-pool-node3
+  namespace: openebs
+spec:
+  node: kube-wk03.strallow.cloud
+  disks: ["/dev/nvme0n1"]
