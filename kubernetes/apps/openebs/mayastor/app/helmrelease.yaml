@@ -44,4 +44,4 @@ spec:
         kind: HelmRepository
         name: mayastor
         namespace: flux-system
-      interval: 11m
+      interval: 10m
