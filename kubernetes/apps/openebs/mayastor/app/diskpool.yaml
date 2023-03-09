@@ -6,7 +6,7 @@ metadata:
   namespace: openebs
 spec:
   node: kube-wk01.strallow.cloud
-  disks: ["aio:////dev/disk/by-uuid/10363411535996397998"]
+  disks: ["aio:////dev/disk/by-id/nvme-Samsung_SSD_960_EVO_1TB_S3ETNX0J106272R"]
 ---
 apiVersion: "openebs.io/v1alpha1"
 kind: DiskPool
@@ -16,3 +16,12 @@ metadata:
 spec:
   node: kube-wk02.strallow.cloud
   disks: ["aio:////dev/disk/by-id/nvme-Samsung_SSD_980_500GB_S64DNL0TA24678B"]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: mayastor-pool-node3
+  namespace: openebs
+spec:
+  node: kube-wk03.strallow.cloud
+  disks: ["aio:////dev/disk/by-id/nvme-CT500P2SSD8_2228E648F04D"]
