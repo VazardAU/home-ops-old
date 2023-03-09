@@ -94,6 +94,7 @@ spec:
           tls:
             - hosts:
                 - *host-hass-config
+              secretName: hass-config-tls
         volumeMounts:
           - name: config
             mountPath: /config
