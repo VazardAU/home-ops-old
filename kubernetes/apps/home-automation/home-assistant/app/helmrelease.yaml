@@ -64,6 +64,8 @@ spec:
       config:
         enabled: true
         existingClaim: home-assistant-config
+    nodeSelector:
+      openebs.io/engine: "mayastor"
     addons:
       codeserver:
         enabled: true
