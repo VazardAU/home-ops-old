@@ -35,7 +35,7 @@ spec:
     service:
       main:
         type: LoadBalancer
-        loadBalancerIP: "${SVC_JELLYFIN}"
+        loadBalancerIP: ${SVC_JELLYFIN}
         externalTrafficPolicy: Local
         ports:
           http:
@@ -47,7 +47,7 @@ spec:
         annotations:
           hajimari.io/icon: simple-icons:jellyfin
         hosts:
-          - host: &host "jellyfin.${SECRET_CLUSTER_DOMAIN}"
+          - host: &host jellyfin.${SECRET_DOMAIN}
             paths:
               - path: /
                 pathType: Prefix
@@ -70,7 +70,7 @@ spec:
       media:
         enabled: true
         type: nfs
-        server: "${LOCAL_LAN_TRUENAS}"
+        server: ${LOCAL_LAN_TRUENAS}
         path: /mnt/data/media-data/media
         mountPath: /mnt/media
       transcode:
