@@ -29,8 +29,8 @@ spec:
     recreate: true
     cleanupOnFail: true
   values:
-    #global:
-    #  nameOverride: *app
+    global:
+      nameOverride: *app
     nodeSelector:
       openebs.io/engine: "mayastor"
     image:
@@ -49,8 +49,8 @@ spec:
       PORT_MANAGER_V1: "29811"
       PORT_MANAGER_V2: "29814"
       PORT_DISCOVERY: "29810"
-      #SHOW_SERVER_LOGS: "true"
-      #SHOW_MONGODB_LOGS: "true"
+      SHOW_SERVER_LOGS: "true"
+      SHOW_MONGODB_LOGS: "true"
 
     ingress:
       main:
@@ -155,6 +155,10 @@ spec:
         enabled: true
         mountPath: /opt/tplink/EAPController/data
         existingClaim: omada-controller-data
+      work:
+        enabled: true
+        mountPath: /opt/tplink/EAPController/work
+        existingClaim: omada-controller-work
       logs:
         enabled: true
         mountPath: /opt/tplink/EAPController/logs
@@ -165,4 +169,4 @@ spec:
         memory: 1200Mi
         cpu: 1200m
       limits:
-        memory: 2000Mi
+        memory: 1500Mi

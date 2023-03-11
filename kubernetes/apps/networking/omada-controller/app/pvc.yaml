@@ -26,3 +26,18 @@ spec:
     requests:
       storage: 10Gi
   storageClassName: openebs-double-replica
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: omada-controller-work
+  namespace: networking
+  labels:
+    k10.kasten.io/backup: "true"
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: openebs-triple-replica
