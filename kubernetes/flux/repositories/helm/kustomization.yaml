@@ -16,3 +16,4 @@ resources:
   - ./stakater.yaml
   - ./weave-gitops.yaml
   - ./mayastor.yaml
+  - ./nvidia-device-plugin.yaml
