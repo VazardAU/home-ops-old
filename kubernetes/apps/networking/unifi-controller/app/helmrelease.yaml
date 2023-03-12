@@ -82,11 +82,15 @@ spec:
             port: 10001
             protocol: UDP
 
-    persistence:
-      data:
-        enabled: true
-        existingClaim: unifi-data
-        mountPath: /unifi
+#    persistence:
+#      data:
+#        enabled: true
+#        existingClaim: unifi-data
+#        mountPath: /unifi
+
+    global:
+      persistence:
+        storageClass: openebs-triple-replica
 
     resources:
       requests:
