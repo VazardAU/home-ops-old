@@ -2,13 +2,9 @@
 clusterName: home-cluster
 talosVersion: v1.3.6
 kubernetesVersion: v1.26.3
-endpoint: https://192.168.10.101:6443
+endpoint: https://192.168.10.200:6443
 domain: cluster.local
 allowSchedulingOnMasters: false
-additionalMachineCertSans:
-  - 192.168.10.101
-additionalApiServerCertSans:
-  - home-cluster.cluster.local
 clusterPodNets:
   - 10.244.0.0/16
 clusterSvcNets:
@@ -62,6 +58,27 @@ controlPlane:
         value:
           feature-gates: GracefulNodeShutdown=true,MixedProtocolLBService=true
           rotate-server-certificates: "true"
+      - op: add
+        path: /cluster/proxy
+        value:
+          disabled: true
+      - op: add
+        path: /cluster/controllerManager/extraArgs
+        value:
+          bind-address: 0.0.0.0
+      - op: add
+        path: /cluster/scheduler/extraArgs
+        value:
+          bind-address: 0.0.0.0
+      - op: remove
+        path: /cluster/apiServer/admissionControl
+    - |-
+      machine:
+        network:
+          extraHostEntries:
+            - ip: 192.168.10.200
+              aliases:
+                - home-cluster.strallow.cloud
 worker:
   patches:
     - |-
@@ -70,3 +87,10 @@ worker:
         value:
           feature-gates: GracefulNodeShutdown=false,MixedProtocolLBService=false
           rotate-server-certificates: "true"
+    - |-
+      machine:
+        network:
+          extraHostEntries:
+            - ip: 192.168.10.200
+              aliases:
+                - home-cluster.strallow.cloud
