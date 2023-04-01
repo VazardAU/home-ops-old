@@ -2,11 +2,11 @@
 clusterName: home-cluster
 talosVersion: v1.3.6
 kubernetesVersion: v1.26.3
-endpoint: https://192.168.10.200:6443
+endpoint: https://192.168.10.1:6443
 domain: cluster.local
 allowSchedulingOnMasters: false
 additionalMachineCertSans:
-  - 192.168.10.200
+  - 192.168.10.1
 additionalApiServerCertSans:
   - home-cluster.local
 clusterPodNets:
@@ -25,7 +25,27 @@ nodes:
         mtu: 1500
         dhcp: true
         vip:
-          ip: 192.168.10.250
+          ip: 192.168.10.1
+  - hostname: k8s-02
+    ipAddress: 192.168.10.102
+    installDisk: /dev/sda
+    controlPlane: true
+    networkInterfaces:
+      - interface: eth0
+        mtu: 1500
+        dhcp: true
+        vip:
+          ip: 192.168.10.1
+  - hostname: k8s-03
+    ipAddress: 192.168.10.103
+    installDisk: /dev/sda
+    controlPlane: true
+    networkInterfaces:
+      - interface: eth0
+        mtu: 1500
+        dhcp: true
+        vip:
+          ip: 192.168.10.1
   - hostname: k8s-04
     ipAddress: 192.168.10.104
     controlPlane: false
