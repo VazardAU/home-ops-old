@@ -2,13 +2,13 @@
 clusterName: home-cluster
 talosVersion: v1.3.6
 kubernetesVersion: v1.26.3
-endpoint: https://192.168.10.1:6443
-domain: strallow.cloud
+endpoint: https://192.168.10.101:6443
+domain: cluster.local
 allowSchedulingOnMasters: false
 additionalMachineCertSans:
-  - 192.168.10.1
+  - 192.168.10.101
 additionalApiServerCertSans:
-  - home-cluster.strallow.cloud
+  - home-cluster.cluster.local
 clusterPodNets:
   - 10.244.0.0/16
 clusterSvcNets:
@@ -25,7 +25,7 @@ nodes:
         mtu: 1500
         dhcp: true
         vip:
-          ip: 192.168.10.1
+          ip: 192.168.10.200
   - hostname: k8s-02
     ipAddress: 192.168.10.102
     installDisk: /dev/sda
@@ -35,7 +35,7 @@ nodes:
         mtu: 1500
         dhcp: true
         vip:
-          ip: 192.168.10.1
+          ip: 192.168.10.200
   - hostname: k8s-03
     ipAddress: 192.168.10.103
     installDisk: /dev/sda
@@ -45,7 +45,7 @@ nodes:
         mtu: 1500
         dhcp: true
         vip:
-          ip: 192.168.10.1
+          ip: 192.168.10.200
   - hostname: k8s-04
     ipAddress: 192.168.10.104
     controlPlane: false
