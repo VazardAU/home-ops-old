@@ -14,9 +14,7 @@ clusterPodNets:
 clusterSvcNets:
   - 10.96.0.0/12
 cniConfig:
-  name: custom
-  urls:
-    - https://raw.githubusercontent.com/bjw-s/home-ops/main/infrastructure/talos/cluster-0/cni/install.yaml
+  name: none
 nodes:
   - hostname: k8s-01
     ipAddress: 192.168.10.101
