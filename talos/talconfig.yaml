@@ -1,0 +1,54 @@
+---
+clusterName: home-cluster
+talosVersion: v1.3.6
+kubernetesVersion: v1.26.3
+endpoint: https://192.168.10.200:6443
+domain: cluster.local
+allowSchedulingOnMasters: false
+additionalMachineCertSans:
+  - 192.168.10.200
+additionalApiServerCertSans:
+  - home-cluster.local
+clusterPodNets:
+  - 10.244.0.0/16
+clusterSvcNets:
+  - 10.96.0.0/12
+cniConfig:
+  name: custom
+  urls:
+    - https://raw.githubusercontent.com/bjw-s/home-ops/main/infrastructure/talos/cluster-0/cni/install.yaml
+nodes:
+  - hostname: k8s-01
+    ipAddress: 192.168.10.101
+    installDisk: /dev/sda
+    controlPlane: true
+    networkInterfaces:
+      - interface: eth0
+        mtu: 1500
+        dhcp: true
+        vip:
+          ip: 192.168.10.250
+  - hostname: k8s-04
+    ipAddress: 192.168.10.104
+    controlPlane: false
+    installDisk: /dev/sda
+    networkInterfaces:
+      - interface: eth0
+        mtu: 1500
+        dhcp: true
+controlPlane:
+  patches:
+    - |-
+      - op: add
+        path: /machine/kubelet/extraArgs
+        value:
+          feature-gates: GracefulNodeShutdown=true,MixedProtocolLBService=true
+          rotate-server-certificates: "true"
+worker:
+  patches:
+    - |-
+      - op: add
+        path: /machine/kubelet/extraArgs
+        value:
+          feature-gates: GracefulNodeShutdown=false,MixedProtocolLBService=false
+          rotate-server-certificates: "true"
