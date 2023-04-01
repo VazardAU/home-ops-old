@@ -3,12 +3,12 @@ clusterName: home-cluster
 talosVersion: v1.3.6
 kubernetesVersion: v1.26.3
 endpoint: https://192.168.10.1:6443
-domain: cluster.local
+domain: strallow.cloud
 allowSchedulingOnMasters: false
 additionalMachineCertSans:
   - 192.168.10.1
 additionalApiServerCertSans:
-  - home-cluster.local
+  - home-cluster.strallow.cloud
 clusterPodNets:
   - 10.244.0.0/16
 clusterSvcNets:
