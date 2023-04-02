@@ -42,14 +42,14 @@ nodes:
         dhcp: true
         vip:
           ip: 192.168.10.200
-  # - hostname: k8s-04
-  #   ipAddress: 192.168.10.104
-  #   controlPlane: false
-  #   installDisk: /dev/sda
-  #   networkInterfaces:
-  #     - interface: eth0
-  #       mtu: 1500
-  #       dhcp: true
+  - hostname: k8s-04
+    ipAddress: 192.168.10.104
+    controlPlane: false
+    installDisk: /dev/sda
+    networkInterfaces:
+      - interface: eth0
+        mtu: 1500
+        dhcp: true
 controlPlane:
   patches:
     - |-
@@ -87,10 +87,3 @@ worker:
         value:
           feature-gates: GracefulNodeShutdown=false,MixedProtocolLBService=false
           rotate-server-certificates: "true"
-    - |-
-      machine:
-        network:
-          extraHostEntries:
-            - ip: 192.168.10.200
-              aliases:
-                - home-cluster.strallow.cloud
