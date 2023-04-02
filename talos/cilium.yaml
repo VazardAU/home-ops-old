@@ -260,10 +260,10 @@ data:
     cluster-name: home-cluster
     peer-service: "hubble-peer.kube-system.svc.cluster.local:443"
     listen-address: :4245
-    dial-timeout: 
-    retry-timeout: 
-    sort-buffer-len-max: 
-    sort-buffer-drain-timeout: 
+    dial-timeout:
+    retry-timeout:
+    sort-buffer-len-max:
+    sort-buffer-drain-timeout:
     tls-client-cert-file: /var/lib/hubble-relay/tls/client.crt
     tls-client-key-file: /var/lib/hubble-relay/tls/client.key
     tls-hubble-server-ca-files: /var/lib/hubble-relay/tls/hubble-server-ca.crt
@@ -1259,7 +1259,7 @@ spec:
             readOnly: true
           terminationMessagePolicy: FallbackToLogsOnError
       restartPolicy: Always
-      priorityClassName: 
+      priorityClassName:
       serviceAccount: "hubble-relay"
       serviceAccountName: "hubble-relay"
       automountServiceAccountToken: false
@@ -1328,7 +1328,7 @@ spec:
         fsGroup: 1001
         runAsGroup: 1001
         runAsUser: 1001
-      priorityClassName: 
+      priorityClassName:
       serviceAccount: "hubble-ui"
       serviceAccountName: "hubble-ui"
       automountServiceAccountToken: true
@@ -1401,27 +1401,27 @@ spec:
 # Only create the namespace if it's different from Ingress secret namespace or Ingress is not enabled.
 ---
 # Source: cilium/templates/cilium-operator/servicemonitor.yaml
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: cilium-operator
-  namespace: kube-system
-  labels:
-    app.kubernetes.io/part-of: cilium
-    app.kubernetes.io/name: cilium-operator
-  annotations:
-spec:
-  selector:
-    matchLabels:
-      io.cilium/app: operator
-      name: cilium-operator
-  namespaceSelector:
-    matchNames:
-    - kube-system
-  endpoints:
-  - port: metrics
-    interval: "10s"
-    honorLabels: true
-    path: /metrics
-  targetLabels:
-  - io.cilium/app
+# apiVersion: monitoring.coreos.com/v1
+# kind: ServiceMonitor
+# metadata:
+#   name: cilium-operator
+#   namespace: kube-system
+#   labels:
+#     app.kubernetes.io/part-of: cilium
+#     app.kubernetes.io/name: cilium-operator
+#   annotations:
+# spec:
+#   selector:
+#     matchLabels:
+#       io.cilium/app: operator
+#       name: cilium-operator
+#   namespaceSelector:
+#     matchNames:
+#     - kube-system
+#   endpoints:
+#   - port: metrics
+#     interval: "10s"
+#     honorLabels: true
+#     path: /metrics
+#   targetLabels:
+#   - io.cilium/app

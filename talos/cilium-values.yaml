@@ -22,11 +22,11 @@ ipv4NativeRoutingCIDR: "10.244.0.0/16"
 ipam:
   mode: "kubernetes"
 
-operator:
-  prometheus:
-    enabled: true
-    serviceMonitor:
-      enabled: true
+# operator:
+#   prometheus:
+#     enabled: true
+#     serviceMonitor:
+#       enabled: true
 
 hubble:
   enabled: true
