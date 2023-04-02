@@ -4,7 +4,7 @@ talosVersion: v1.3.6
 kubernetesVersion: v1.26.3
 endpoint: https://home-cluster.strallow.cloud:6443
 domain: strallow.cloud
-allowSchedulingOnMasters: false
+allowSchedulingOnMasters: true
 clusterPodNets:
   - 10.244.0.0/16
 clusterSvcNets:
