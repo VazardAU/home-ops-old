@@ -3,3 +3,7 @@ home-cluster-k8s-04.yaml
 talosconfig
 home-cluster-k8s-02.yaml
 home-cluster-k8s-03.yaml
+home-cluster-k8s-01.strallow.cloud.yaml
+home-cluster-k8s-02.strallow.cloud.yaml
+home-cluster-k8s-03.strallow.cloud.yaml
+home-cluster-k8s-04.strallow.cloud.yaml

@@ -12,7 +12,7 @@ clusterSvcNets:
 cniConfig:
   name: none
 nodes:
-  - hostname: k8s-01
+  - hostname: k8s-01.strallow.cloud
     ipAddress: 192.168.10.101
     installDisk: /dev/sda
     controlPlane: true
@@ -22,7 +22,7 @@ nodes:
         dhcp: true
         vip:
           ip: 192.168.10.200
-  - hostname: k8s-02
+  - hostname: k8s-02.strallow.cloud
     ipAddress: 192.168.10.102
     installDisk: /dev/sda
     controlPlane: true
@@ -32,7 +32,7 @@ nodes:
         dhcp: true
         vip:
           ip: 192.168.10.200
-  - hostname: k8s-03
+  - hostname: k8s-03.strallow.cloud
     ipAddress: 192.168.10.103
     installDisk: /dev/sda
     controlPlane: true
@@ -42,7 +42,7 @@ nodes:
         dhcp: true
         vip:
           ip: 192.168.10.200
-  - hostname: k8s-04
+  - hostname: k8s-04.strallow.cloud
     ipAddress: 192.168.10.104
     controlPlane: false
     installDisk: /dev/sda
@@ -87,3 +87,10 @@ worker:
         value:
           feature-gates: GracefulNodeShutdown=false,MixedProtocolLBService=false
           rotate-server-certificates: "true"
+    - |-
+      machine:
+        network:
+          extraHostEntries:
+            - ip: 192.168.10.200
+              aliases:
+                - home-cluster.strallow.cloud
