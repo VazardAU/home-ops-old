@@ -19,7 +19,14 @@ nodes:
     networkInterfaces:
       - interface: eth0
         mtu: 1500
-        dhcp: true
+        dhcp: false
+        vlans:
+          - vlanId: 10
+            addresses:
+              - "192.168.10.101/24"
+            routes:
+              - network: 0.0.0.0/0
+                gateway: 192.168.10.1
         vip:
           ip: 192.168.10.200
   - hostname: k8s-02.strallow.cloud
@@ -29,7 +36,14 @@ nodes:
     networkInterfaces:
       - interface: eth0
         mtu: 1500
-        dhcp: true
+        dhcp: false
+        vlans:
+          - vlanId: 10
+            addresses:
+              - "192.168.10.102/24"
+            routes:
+              - network: 0.0.0.0/0
+                gateway: 192.168.10.1
         vip:
           ip: 192.168.10.200
   - hostname: k8s-03.strallow.cloud
@@ -39,7 +53,14 @@ nodes:
     networkInterfaces:
       - interface: eth0
         mtu: 1500
-        dhcp: true
+        dhcp: false
+        vlans:
+          - vlanId: 10
+            addresses:
+              - "192.168.10.103/24"
+            routes:
+              - network: 0.0.0.0/0
+                gateway: 192.168.10.1
         vip:
           ip: 192.168.10.200
   - hostname: k8s-04.strallow.cloud
@@ -49,7 +70,14 @@ nodes:
     networkInterfaces:
       - interface: eth0
         mtu: 1500
-        dhcp: true
+        dhcp: false
+        vlans:
+          - vlanId: 10
+            addresses:
+              - "192.168.10.104/24"
+            routes:
+              - network: 0.0.0.0/0
+                gateway: 192.168.10.1
 controlPlane:
   patches:
     - |-

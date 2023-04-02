@@ -2,6 +2,16 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
+  name: openebs-single-replica
+parameters:
+  ioTimeout: "60"
+  protocol: nvmf
+  repl: "1"
+provisioner: io.openebs.csi-mayastor
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
   name: openebs-double-replica
 parameters:
   ioTimeout: "60"

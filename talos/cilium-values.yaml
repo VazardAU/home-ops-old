@@ -28,6 +28,11 @@ ipam:
 #     serviceMonitor:
 #       enabled: true
 
+
+# -- Enable installation of PodCIDR routes between worker
+# nodes if worker nodes share a common L2 network segment.
+autoDirectNodeRoutes: true
+
 hubble:
   enabled: true
   relay:
