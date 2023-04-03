@@ -22,8 +22,8 @@ spec:
     remediation:
       retries: 5
   values:
-    # bgp:
-    #   enabled: false
+  #   bgp:
+  #     enabled: false
     ipam:
       mode: kubernetes
     ipv4NativeRoutingCIDR: 10.244.0.0/16
