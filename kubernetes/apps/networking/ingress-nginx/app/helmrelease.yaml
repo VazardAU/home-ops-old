@@ -68,7 +68,7 @@ spec:
         enabled: false
       extraArgs:
         default-ssl-certificate: "networking/${SECRET_DOMAIN/./-}-production-tls"
-        tcp-services-configmap: "networking/tcp-services"
+        # tcp-services-configmap: "networking/tcp-services"
       podAnnotations:
         configmap.reloader.stakater.com/reload: cloudflare-networks
       resources:
