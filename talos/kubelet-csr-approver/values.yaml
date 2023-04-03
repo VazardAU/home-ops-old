@@ -1,1 +1,2 @@
 providerRegex: ^k8s-(cp|wk)\d\d?$
+providerIpPrefixes: 192.168.10.0/24

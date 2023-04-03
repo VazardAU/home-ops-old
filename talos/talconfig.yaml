@@ -57,6 +57,51 @@ nodes:
         mtu: 1500
         vip:
           ip: 192.168.10.200
+  - hostname: k8s-wk01
+    ipAddress: 192.168.10.204
+    controlPlane: false
+    installDisk: /dev/sda
+    nameservers:
+      - 192.168.10.1
+      - 1.1.1.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.204/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+        mtu: 1500
+  - hostname: k8s-wk02
+    ipAddress: 192.168.10.205
+    controlPlane: false
+    installDisk: /dev/sda
+    nameservers:
+      - 192.168.10.1
+      - 1.1.1.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.205/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+        mtu: 1500
+  - hostname: k8s-wk03
+    ipAddress: 192.168.10.206
+    controlPlane: false
+    installDisk: /dev/sda
+    nameservers:
+      - 192.168.10.1
+      - 1.1.1.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.206/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+        mtu: 1500
 controlPlane:
   patches:
     - |-
