@@ -5,5 +5,5 @@ metadata:
   name: mayastor-pool-node1
   namespace: openebs
 spec:
-  node: k8s-04.strallow.cloud
+  node: k8s-wk01.strallow.cloud
   disks: ["/dev/nvme0n1"]

@@ -1,95 +1,70 @@
----
 clusterName: home-cluster
 talosVersion: v1.3.6
-kubernetesVersion: v1.26.3
-endpoint: https://home-cluster.strallow.cloud:6443
-domain: strallow.cloud
+kubernetesVersion: v1.26.1
+endpoint: https://192.168.10.200:6443
 allowSchedulingOnMasters: true
-clusterPodNets:
-  - 10.244.0.0/16
-clusterSvcNets:
-  - 10.96.0.0/12
 cniConfig:
   name: none
 nodes:
-  - hostname: k8s-01.strallow.cloud
-    ipAddress: 192.168.10.101
-    installDisk: /dev/sda
+  - hostname: k8s-cp01
+    ipAddress: 192.168.10.201
     controlPlane: true
+    installDisk: /dev/sda
+    nameservers:
+      - 192.168.10.1
+      - 1.1.1.1
     networkInterfaces:
       - interface: eth0
+        addresses:
+          - 192.168.10.201/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
         mtu: 1500
-        dhcp: false
-        vlans:
-          - vlanId: 10
-            addresses:
-              - "192.168.10.101/24"
-            routes:
-              - network: 0.0.0.0/0
-                gateway: 192.168.10.1
         vip:
           ip: 192.168.10.200
-  - hostname: k8s-02.strallow.cloud
-    ipAddress: 192.168.10.102
-    installDisk: /dev/sda
+  - hostname: k8s-cp02
+    ipAddress: 192.168.10.202
     controlPlane: true
+    installDisk: /dev/sda
+    nameservers:
+      - 192.168.10.1
+      - 1.1.1.1
     networkInterfaces:
       - interface: eth0
+        addresses:
+          - 192.168.10.202/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
         mtu: 1500
-        dhcp: false
-        vlans:
-          - vlanId: 10
-            addresses:
-              - "192.168.10.102/24"
-            routes:
-              - network: 0.0.0.0/0
-                gateway: 192.168.10.1
         vip:
           ip: 192.168.10.200
-  - hostname: k8s-03.strallow.cloud
-    ipAddress: 192.168.10.103
-    installDisk: /dev/sda
+  - hostname: k8s-cp03
+    ipAddress: 192.168.10.203
     controlPlane: true
+    installDisk: /dev/sda
+    nameservers:
+      - 192.168.10.1
+      - 1.1.1.1
     networkInterfaces:
       - interface: eth0
+        addresses:
+          - 192.168.10.203/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
         mtu: 1500
-        dhcp: false
-        vlans:
-          - vlanId: 10
-            addresses:
-              - "192.168.10.103/24"
-            routes:
-              - network: 0.0.0.0/0
-                gateway: 192.168.10.1
         vip:
           ip: 192.168.10.200
-  - hostname: k8s-04.strallow.cloud
-    ipAddress: 192.168.10.104
-    controlPlane: false
-    installDisk: /dev/sda
-    networkInterfaces:
-      - interface: eth0
-        mtu: 1500
-        dhcp: false
-        vlans:
-          - vlanId: 10
-            addresses:
-              - "192.168.10.104/24"
-            routes:
-              - network: 0.0.0.0/0
-                gateway: 192.168.10.1
 controlPlane:
   patches:
     - |-
       - op: add
         path: /machine/kubelet/extraArgs
         value:
-          feature-gates: GracefulNodeShutdown=true,MixedProtocolLBService=true
           rotate-server-certificates: "true"
-      - op: add
-        path: /cluster/proxy
-        value:
-          disabled: true
+          feature-gates: CronJobTimeZone=true,GracefulNodeShutdown=true
       - op: add
         path: /cluster/controllerManager/extraArgs
         value:
@@ -98,27 +73,27 @@ controlPlane:
         path: /cluster/scheduler/extraArgs
         value:
           bind-address: 0.0.0.0
-      - op: remove
-        path: /cluster/apiServer/admissionControl
+      - op: add
+        path: /cluster/proxy/extraArgs
+        value:
+          bind-address: 0.0.0.0
     - |-
       machine:
-        network:
-          extraHostEntries:
-            - ip: 192.168.10.200
-              aliases:
-                - home-cluster.strallow.cloud
+        time:
+          disabled: false
+          servers:
+            - 192.168.10.1
 worker:
   patches:
     - |-
       - op: add
         path: /machine/kubelet/extraArgs
         value:
-          feature-gates: GracefulNodeShutdown=false,MixedProtocolLBService=false
           rotate-server-certificates: "true"
+          feature-gates: CronJobTimeZone=true,GracefulNodeShutdown=true
     - |-
       machine:
-        network:
-          extraHostEntries:
-            - ip: 192.168.10.200
-              aliases:
-                - home-cluster.strallow.cloud
+        time:
+          disabled: false
+          servers:
+            - 192.168.10.1

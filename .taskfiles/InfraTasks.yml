@@ -1,0 +1,26 @@
+---
+version: "3"
+
+tasks:
+
+  talos-install:
+    desc: Apply Talos config to nodes
+    cmds:
+      - cp ~/repos/home-ops/talos/clusterconfig/talosconfig ~/.talos/config
+      - talosctl -n 192.168.10.201 apply-config --insecure ~/repos/home-ops/talos/clusterconfig/home-cluster-k8s-cp01.yaml
+      - talosctl -n 192.168.10.202 apply-config --insecure ~/repos/home-ops/talos/clusterconfig/home-cluster-k8s-cp02.yaml
+      - talosctl -n 192.168.10.203 apply-config --insecure ~/repos/home-ops/talos/clusterconfig/home-cluster-k8s-cp03.yaml
+      # - talosctl -n 192.168.10.204 apply-config --insecure ~/repos/home-ops/talos/clusterconfig/home-cluster-k8s-wk01.yaml
+      # - talosctl -n 192.168.10.205 apply-config --insecure ~/repos/home-ops/talos/clusterconfig/home-cluster-k8s-wk02.yaml
+      - talosctl -n 192.168.10.206 apply-config --insecure ~/repos/home-ops/talos/clusterconfig/home-cluster-k8s-wk03.yaml
+
+  talos-bootstrap:
+    desc: Bootstrap first CP node
+    cmds:
+      - talosctl -n 192.168.10.201 bootstrap
+
+  cmi-install:
+    desc: Install Cilium and Kubelet CSR Approver into your cluster
+    cmds:
+      - kubectl kustomize --enable-helm ~/repos/home-ops/talos/cni | kubectl apply -f -
+      - kubectl kustomize --enable-helm ~/repos/home-ops/talos/kubelet-csr-approver | kubectl apply -f -

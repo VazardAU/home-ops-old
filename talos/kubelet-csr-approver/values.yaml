@@ -1,0 +1,1 @@
+providerRegex: ^k8s-(cp|wk)\d\d?$

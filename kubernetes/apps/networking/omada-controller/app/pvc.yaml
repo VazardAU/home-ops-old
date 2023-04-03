@@ -12,7 +12,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: openebs-double-replica
+  storageClassName: openebs-single-replica
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -25,7 +25,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: openebs-double-replica
+  storageClassName: openebs-single-replica
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -40,4 +40,4 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: openebs-double-replica
+  storageClassName: openebs-single-replica
