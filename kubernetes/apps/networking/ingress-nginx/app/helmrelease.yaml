@@ -34,10 +34,10 @@ spec:
         annotations:
           metallb.universe.tf/loadBalancerIPs: "${METALLB_INGRESS_ADDR}"
         externalTrafficPolicy: Local
-        ports:
-          nfs-media: 20490
-        targetPorts:
-          nfs-media: nfs-media
+        # ports:
+        #   nfs-media: 20490
+        # targetPorts:
+        #   nfs-media: nfs-media
       publishService:
         enabled: true
       ingressClassResource:
