@@ -9,3 +9,4 @@ resources:
   - ./metallb/ks.yaml
 #  - ./omada-controller/ks.yaml
 #  - ./unifi-controller/ks.yaml
+  - ./traefik/ks.yaml
