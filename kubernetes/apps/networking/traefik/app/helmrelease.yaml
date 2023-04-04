@@ -70,7 +70,7 @@ spec:
         service:
           enabled: true
         serviceMonitor:
-          namespace: networking-system
+          namespace: networking
     experimental:
       http3:
         enabled: true
