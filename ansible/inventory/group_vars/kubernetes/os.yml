@@ -32,3 +32,5 @@ ubuntu:
     - socat
     - python3-kubernetes
     - python3-yaml
+    - qemu-guest-agent
+    - linux-modules-extra-5.19.0-26-generic
