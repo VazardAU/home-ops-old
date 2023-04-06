@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
 #  - ./mayastor/ks.yaml
-#  - ./openebs-operator/ks.yaml
+  - ./openebs-operator/ks.yaml
