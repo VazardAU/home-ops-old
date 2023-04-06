@@ -41,21 +41,3 @@ spec:
   values:
     mayastor:
       enabled: true
-    etcd:
-      persistence:
-        enabled: true
-        storageClass: "local-path"
-        size: 2Gi
-        reclaimPolicy: "Delete"
-    loki-stack:
-      enabled: true
-      loki:
-        rbac:
-          create: true
-          pspEnabled: false
-        enabled: true
-        persistence:
-          enabled: true
-          storageClassName: "local-path"
-          reclaimPolicy: "Delete"
-          size: 10Gi
