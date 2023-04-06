@@ -41,3 +41,9 @@ spec:
   values:
     mayastor:
       enabled: true
+    etcd:
+      persistence:
+        enabled: true
+        storageClass: "local-path"
+        size: 2Gi
+        reclaimPolicy: "Delete"
