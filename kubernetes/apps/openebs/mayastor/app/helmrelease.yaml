@@ -48,8 +48,8 @@ spec:
         enabled: false
     jaeger-operator:
       crd:
-        # Install jaeger CRDs
-        install: true
+        # Install jaeger CRDs - temo disabled
+        install: false
   postRenderers:
     - kustomize:
         patches:
