@@ -385,7 +385,7 @@ loki-stack:
       enabled: true
       # -- StorageClass for Loki's centralised log storage
       # empty storageClass implies cluster default storageClass & `manual` creates a static hostpath PV
-      storageClassName: ""
+      storageClassName: "local-path"
       # -- PVC's ReclaimPolicy, can be Delete or Retain
       reclaimPolicy: "Delete"
       # -- Size of Loki's persistence storage
