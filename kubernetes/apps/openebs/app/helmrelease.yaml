@@ -39,10 +39,6 @@ spec:
     keepHistory: false
   maxHistory: 3
   values:
-    localprovisioner:
-      enabled: false
-    ndm:
-      enabled: false
     mayastor:
       # -- Enable Mayastor storage engine
       # Note: Enabling this will remove LocalPV Provisioner and NDM (default chart components).
@@ -162,14 +158,14 @@ spec:
           app: etcd
           openebs.io/logging: "true"
         # -- Number of replicas of etcd
-        replicaCount: 3
+        replicaCount: 2
         persistence:
           # -- If true, use a Persistent Volume Claim. If false, use emptyDir.
           enabled: true
           # -- Will define which storageClass to use in etcd's StatefulSets
           # a `manual` storageClass will provision a hostpath PV on the same node
           # an empty storageClass will use the default StorageClass on the cluster
-          storageClass: "manual"
+          storageClass: "local-path"
           # -- Volume size
           size: 2Gi
         podAntiAffinityPreset: "hard"
