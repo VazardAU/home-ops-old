@@ -97,18 +97,18 @@ spec:
       #     # Create a clusterRole for Jaeger
       #     clusterRole: true
 
-      # agents:
-      #   core:
-      #     # -- Log level for the core service
-      #     logLevel: info
-      #   ha:
-      #     enabled: true
-      #     node:
-      #       # -- Log level for the ha node service
-      #       logLevel: info
-      #     cluster:
-      #       # -- Log level for the ha cluster service
-      #       logLevel: info
+      agents:
+        core:
+          # -- Log level for the core service
+          logLevel: info
+        ha:
+          enabled: false
+          node:
+            # -- Log level for the ha node service
+            logLevel: info
+          cluster:
+            # -- Log level for the ha cluster service
+            logLevel: info
 
       # apis:
       #   rest:
