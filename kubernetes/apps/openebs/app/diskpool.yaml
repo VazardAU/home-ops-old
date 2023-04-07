@@ -2,7 +2,7 @@
 apiVersion: "openebs.io/v1alpha1"
 kind: DiskPool
 metadata:
-  name: mayastor-pool-node3
+  name: mayastor-node3
   namespace: openebs
 spec:
   node: k8s-wk03
@@ -11,7 +11,7 @@ spec:
 apiVersion: "openebs.io/v1alpha1"
 kind: DiskPool
 metadata:
-  name: mayastor-pool-node2
+  name: mayastor-node2
   namespace: openebs
 spec:
   node: k8s-wk02
