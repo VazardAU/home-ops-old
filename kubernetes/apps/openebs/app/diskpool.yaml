@@ -6,7 +6,7 @@ metadata:
   namespace: openebs
 spec:
   node: k8s-wk03
-  disks: ["/dev/nvme0n1"]
+  disks: ["aio:////dev/disk/by-uuid/01e3a87f-0738-4f79-84e7-a5a23df9b1ff"]
 ---
 apiVersion: "openebs.io/v1alpha1"
 kind: DiskPool
@@ -15,4 +15,4 @@ metadata:
   namespace: openebs
 spec:
   node: k8s-wk02
-  disks: ["/dev/nvme0n1"]
+  disks: ["aio:////dev/disk/by-uuid/ec1b2488-1f6e-452f-b98d-84be1b15e89b"]
