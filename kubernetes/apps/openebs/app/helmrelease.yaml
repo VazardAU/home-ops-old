@@ -150,7 +150,7 @@ spec:
         nodeSelector:
           openebs.io/engine: mayastor
           kubernetes.io/arch: amd64
-          worker-node: true
+          worker-node: "true"
 
       etcd:
         # Pod labels; okay to remove the openebs logging label if required
@@ -158,7 +158,7 @@ spec:
           app: etcd
           openebs.io/logging: "true"
         # -- Number of replicas of etcd
-        replicaCount: 2
+        replicaCount: 3
         persistence:
           # -- If true, use a Persistent Volume Claim. If false, use emptyDir.
           enabled: true
