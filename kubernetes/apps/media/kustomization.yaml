@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./nfs-storageclass.yaml
-  # - ./pv.yaml
-  # - ./sabnzbd/ks.yaml
+  - ./pv.yaml
+  - ./sabnzbd/ks.yaml
