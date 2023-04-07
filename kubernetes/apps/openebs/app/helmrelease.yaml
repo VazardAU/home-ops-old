@@ -148,7 +148,6 @@ spec:
         # Note that if multi-arch images support 'kubernetes.io/arch: amd64'
         # should be removed.
         nodeSelector:
-          kubernetes.io/arch: amd64
           worker-node: "true"
 
       etcd:
