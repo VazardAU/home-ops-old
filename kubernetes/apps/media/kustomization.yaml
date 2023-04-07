@@ -6,3 +6,4 @@ resources:
   - ./nfs-storageclass.yaml
   - ./pv.yaml
   - ./sabnzbd/ks.yaml
+  - ./radarr/ks.yaml
