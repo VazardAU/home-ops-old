@@ -7,3 +7,12 @@ metadata:
 spec:
   node: k8s-wk03
   disks: ["/dev/nvme0n1"]
+---
+apiVersion: "openebs.io/v1alpha1"
+kind: DiskPool
+metadata:
+  name: mayastor-pool-node2
+  namespace: openebs
+spec:
+  node: k8s-wk02
+  disks: ["/dev/nvme0n1"]
