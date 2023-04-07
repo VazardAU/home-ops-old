@@ -58,14 +58,14 @@ spec:
         # -- ImagePullPolicy for Mayastor images
         pullPolicy: Always
 
-      # base:
-      #   # docker-secrets required to pull images if the container registry from image.Registry is protected
-      #   imagePullSecrets:
-      #     # -- Enable imagePullSecrets for pulling our container images
-      #     enabled: false
-      #     # Name of the imagePullSecret in the installed namespace
-      #     secrets:
-      #       - name: login
+      base:
+        # docker-secrets required to pull images if the container registry from image.Registry is protected
+        imagePullSecrets:
+          # -- Enable imagePullSecrets for pulling our container images
+          enabled: false
+          # Name of the imagePullSecret in the installed namespace
+          secrets:
+            - name: login
 
       #   metrics:
       #     # -- Enable the metrics exporter
@@ -132,14 +132,15 @@ spec:
       #     # -- Log level for the csi controller
       #     logLevel: info
 
-      #   node:
-      #     logLevel: info
-      #     topology:
-      #       segments:
-      #         openebs.io/csi-node: mayastor
-      #       # -- Add topology segments to the csi-node daemonset node selector
-      #       nodeSelector: false
-      #     kubeletDir: /var/lib/kubelet
+        node:
+          logLevel: info
+          topology:
+            segments:
+              openebs.io/csi-node: mayastor
+            # -- Add topology segments to the csi-node daemonset node selector
+              nodeSelector:
+                worker-node: "true"
+          kubeletDir: /var/lib/kubelet
 
       io_engine:
         # -- Log level for the io-engine service
@@ -148,7 +149,8 @@ spec:
         # Note that if multi-arch images support 'kubernetes.io/arch: amd64'
         # should be removed.
         nodeSelector:
-          worker-node: "true"
+          openebs.io/csi-node: mayastor
+          kubernetes.io/arch: amd64
 
       etcd:
         # Pod labels; okay to remove the openebs logging label if required
