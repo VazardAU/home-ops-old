@@ -6,4 +6,6 @@ resources:
   - ./nfs-storageclass.yaml
   - ./pv.yaml
   - ./sabnzbd/ks.yaml
-  - ./radarr/ks.yaml
+  # - ./radarr/ks.yaml
+  - ./jellyfin/ks.yaml
+  - ./media-browser/ks.yaml

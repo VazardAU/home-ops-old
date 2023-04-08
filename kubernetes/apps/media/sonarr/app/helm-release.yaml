@@ -32,7 +32,7 @@ spec:
       tag: 4.0.0.421@sha256:0160d9bfd7a95ea9cbfff1eb00d3682a0afefac31aa3fc5e2eedbc701ced70ae
 
     env:
-      TZ: "America/New_York"
+      TZ: ${TIMEZONE}
       PUSHOVER_DEBUG: "false"
       PUSHOVER_APP_URL: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
       SONARR__INSTANCE_NAME: Sonarr
