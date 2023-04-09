@@ -50,8 +50,6 @@ spec:
         annotations:
           # auth.home.arpa/enabled: "true"
           # external-dns.home.arpa/enabled: "true"
-          nginx.ingress.kubernetes.io/configuration-snippet: |
-            proxy_http_version 1.1;
         hosts:
           - host: *host
             paths:
