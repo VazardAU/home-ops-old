@@ -10,4 +10,4 @@ resources:
   - ./jellyfin/ks.yaml
   - ./media-browser/ks.yaml
   - ./sonarr/ks.yaml
-  - ./recyclarr/ks.yaml
+  # - ./recyclarr/ks.yaml
