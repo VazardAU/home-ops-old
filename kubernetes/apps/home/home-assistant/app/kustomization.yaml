@@ -5,4 +5,4 @@ resources:
   - config-pvc.yaml
   - networkattachmentdefinition.yaml
   - secret.sops.yaml
-  - helm-release.yaml
+  # - helm-release.yaml
