@@ -28,6 +28,9 @@ spec:
     env:
       TZ: ${TIMEZONE}
 
+    nodeSelector:
+      openebs.io/csi-node: mayastor
+
     podAnnotations:
       secret.reloader.stakater.com/reload: *app
       k8s.v1.cni.cncf.io/networks: macvlan-static-iot-hass
