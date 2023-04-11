@@ -5,7 +5,7 @@ metadata:
   name: cluster-apps-chatgpt
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/homne/chatgpt/app
+  path: ./kubernetes/apps/home/chatgpt/app
   prune: true
   sourceRef:
     kind: GitRepository
