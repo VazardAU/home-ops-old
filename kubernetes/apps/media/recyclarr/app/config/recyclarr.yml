@@ -16,6 +16,7 @@ sonarr:
           - 7878c33f1963fefb3d6c8657d46c2f0a # DV HDR10
         quality_profiles:
           - name: Best Available
+            score: 1600
       - trash_ids:
           # Streaming Services
           - d660701077794679fd59e8bdf4ce3a29 # AMZN
