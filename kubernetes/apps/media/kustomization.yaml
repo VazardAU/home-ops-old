@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./nfs-storageclass.yaml
-  - ./pv.yaml
+  # - ./pv.yaml
   - ./sabnzbd/ks.yaml
   - ./radarr/ks.yaml
   - ./jellyfin/ks.yaml
