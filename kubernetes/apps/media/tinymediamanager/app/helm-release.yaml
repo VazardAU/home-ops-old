@@ -70,10 +70,10 @@ spec:
 
     resources:
       requests:
-        cpu: 10m
-        memory: 50Mi
+        cpu: 100m
+        memory: 200Mi
       limits:
-        memory: 500Mi
+        memory: 1Gi
 
     nodeSelector:
       worker-node: "true"
