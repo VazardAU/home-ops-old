@@ -13,6 +13,10 @@ sonarr:
       type: series
     custom_formats:
       - trash_ids:
+          - 7878c33f1963fefb3d6c8657d46c2f0a # DV HDR10
+        quality_profiles:
+          - name: Best Available
+      - trash_ids:
           # Streaming Services
           - d660701077794679fd59e8bdf4ce3a29 # AMZN
           - f67c9ca88f463a48346062e8ad07713f # ATVP
@@ -38,7 +42,6 @@ sonarr:
           - eb3d5cc0a2be0db205fb823640db6a3c # Repack v2
           - 44e7c4de10ae50265753082e5dc76047 # Repack v3
           # HDR Metadata
-          - 7878c33f1963fefb3d6c8657d46c2f0a # DV HDR10
           - 1f733af03141f068a540eec352589a89 # DV HLG
           - 27954b0a80aab882522a88a4d9eae1cd # DV SDR
           - 6d0d8de7b57e35518ac0308b0ddf404e # DV
