@@ -126,4 +126,4 @@ spec:
         memory: 5000Mi
 
     nodeSelector:
-      openebs.io/csi-node: mayastor
+      worker-node: "true"

@@ -48,3 +48,6 @@ spec:
         tls:
           - hosts:
               - *host
+
+    nodeSelector:
+      worker-node: "true"
