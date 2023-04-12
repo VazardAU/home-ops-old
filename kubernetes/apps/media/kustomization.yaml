@@ -12,3 +12,4 @@ resources:
   - ./sonarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./recyclarr/ks.yaml
+  - ./tinymediamanager/ks.yaml
