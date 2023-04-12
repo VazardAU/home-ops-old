@@ -124,3 +124,6 @@ spec:
         cpu: 25m
       limits:
         memory: 5000Mi
+
+    nodeSelector:
+      openebs.io/csi-node: mayastor
