@@ -10,4 +10,5 @@ resources:
   - ./jellyfin/ks.yaml
   - ./media-browser/ks.yaml
   - ./sonarr/ks.yaml
+  - ./prowlarr/ks.yaml
   - ./recyclarr/ks.yaml
