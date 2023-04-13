@@ -28,6 +28,8 @@ spec:
 
     env:
       TZ: ${TIMEZONE}
+      USER_ID: 568
+      GROUP_ID: 568
 
     service:
       main:
