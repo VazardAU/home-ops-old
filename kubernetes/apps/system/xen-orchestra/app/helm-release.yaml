@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   values:
     image:
-      repository: ronivay/xen-orchestra
+      repository: docker.io/ronivay/xen-orchestra
       tag: 5.111.1@sha256:b32a2da1b2de5c05f533d8ecc333ff1735a02ddb363539389dd9e8942bd8bfa1
     env:
       TZ: ${TIMEZONE}
