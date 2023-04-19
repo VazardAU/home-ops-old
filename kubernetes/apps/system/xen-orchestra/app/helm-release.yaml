@@ -28,7 +28,6 @@ spec:
     env:
       TZ: ${TIMEZONE}
       HTTPS_PORT: &port 10324
-      # Just so it doesn't try to bind port 80
       HTTP_PORT: *port
       REDIRECT_TO_HTTPS: true
 
