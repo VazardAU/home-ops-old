@@ -8,28 +8,30 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: xen-orchestra
-      version: 3.0.21
+      chart: app-template
+      version: 1.4.0
       sourceRef:
         kind: HelmRepository
-        name: true-charts
+        name: bjw-s-charts
         namespace: flux-system
+  maxHistory: 3
   install:
     createNamespace: true
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 5
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     image:
-      repository: tccr.io/truecharts/xenorchestra
-      tag: 5.109.0@sha256:c20120d537153808f055a4b396e5095f026f2ae408fdcca3c4f7072fac4d0b7b
+      repository: ronivay/xen-orchestra
+      tag: 5.111.1@sha256:b32a2da1b2de5c05f533d8ecc333ff1735a02ddb363539389dd9e8942bd8bfa1
     env:
       TZ: ${TIMEZONE}
-      HTTPS_PORT: &port 10324
-      HTTP_PORT: *port
-      REDIRECT_TO_HTTPS: true
+      HTTP_PORT: &port 80
 
     podAnnotations:
       secret.reloader.stakater.com/reload: *app
