@@ -158,7 +158,7 @@ spec:
           app: etcd
           openebs.io/logging: "true"
         # -- Number of replicas of etcd
-        replicaCount: 3
+        replicaCount: 2
         persistence:
           # -- If true, use a Persistent Volume Claim. If false, use emptyDir.
           enabled: true
