@@ -1,0 +1,140 @@
+clusterName: home-cluster
+talosVersion: v1.4.0
+kubernetesVersion: v1.27.1
+endpoint: https://192.168.10.250:6443
+allowSchedulingOnMasters: false
+clusterPodNets:
+  - 10.244.0.0/16
+clusterSvcNets:
+  - 10.96.0.0/12
+cniConfig:
+  name: none
+additionalMachineCertSans:
+  - k8s.strallow.cloud
+  - 192.168.10.250
+nodes:
+  - hostname: k8s-cp01
+    ipAddress: 192.168.10.201
+    controlPlane: true
+    installDisk: /dev/xvda
+    nameservers:
+      - 192.168.10.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.201/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+        vip:
+          ip: 192.168.10.250
+  - hostname: k8s-cp02
+    ipAddress: 192.168.10.202
+    controlPlane: true
+    installDisk: /dev/xvda
+    nameservers:
+      - 192.168.10.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.202/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+        vip:
+          ip: 192.168.10.250
+  - hostname: k8s-cp03
+    ipAddress: 192.168.10.203
+    controlPlane: true
+    installDisk: /dev/xvda
+    nameservers:
+      - 192.168.10.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.203/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+        vip:
+          ip: 192.168.10.250
+  - hostname: k8s-wk01
+    ipAddress: 192.168.10.204
+    controlPlane: false
+    installDisk: /dev/xvda
+    nameservers:
+      - 192.168.10.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.204/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+  - hostname: k8s-wk02
+    ipAddress: 192.168.10.205
+    controlPlane: false
+    installDisk: /dev/xvda
+    nameservers:
+      - 192.168.10.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.205/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+  - hostname: k8s-wk03
+    ipAddress: 192.168.10.206
+    controlPlane: false
+    installDisk: /dev/xvda
+    nameservers:
+      - 192.168.10.1
+    networkInterfaces:
+      - interface: eth0
+        addresses:
+          - 192.168.10.206/24
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.10.1
+controlPlane:
+  patches:
+    - |-
+      machine:
+        time:
+          disabled: false
+          servers:
+            - 192.168.10.1
+        kubelet:
+          extraArgs:
+            rotate-server-certificates: "true"
+            feature-gates: CronJobTimeZone=true,GracefulNodeShutdown=true
+      cluster:
+        proxy:
+          disabled: true
+        extraManifests:
+          # Install the kubelet cert-approver manifests
+          - https://raw.githubusercontent.com/VazardAU/home-ops/main/talos/integrations/cert-approver/cert-approver.yaml
+          - https://raw.githubusercontent.com/VazardAU/home-ops/main/talos/integrations/cilium/cilium.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
+          - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
+          - https://github.com/kubernetes-sigs/gateway-api/releases/download/v0.6.2/standard-install.yaml
+worker:
+  patches:
+    - |-
+      machine:
+        time:
+          disabled: false
+          servers:
+            - 192.168.10.1
+        kubelet:
+          extraArgs:
+            rotate-server-certificates: "true"
+            feature-gates: CronJobTimeZone=true,GracefulNodeShutdown=true

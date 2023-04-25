@@ -1,0 +1,19 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kubelet-csr-approver
+  namespace: kube-system
+spec:
+  chart:
+    spec:
+      chart: kubelet-csr-approver
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: postfinance-charts
+      version: 1.0.0
+  interval: 1m0s
+  values:
+    providerIpPrefixes: 192.168.10.0/24
+    providerRegex: ^k8s-(cp|wk)\d\d?$

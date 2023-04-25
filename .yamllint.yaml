@@ -1,6 +1,7 @@
 ---
 ignore: |
   *.sops.*
+  *talos/*
 extends: default
 rules:
   truthy:
