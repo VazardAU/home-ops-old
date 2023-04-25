@@ -114,7 +114,7 @@ controlPlane:
           disabled: true
         extraManifests:
           # Install the kubelet cert-approver manifests
-          - https://raw.githubusercontent.com/VazardAU/home-ops/main/talos/integrations/cert-approver/cert-approver.yaml
+          - https://raw.githubusercontent.com/VazardAU/home-ops/main/talos/integrations/kubelet-csr-approver/kubelet-csr-approver.yaml
           - https://raw.githubusercontent.com/VazardAU/home-ops/main/talos/integrations/cilium/cilium.yaml
           - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
           - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml

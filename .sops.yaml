@@ -13,3 +13,7 @@ creation_rules:
     key_groups:
       - age:
           - age153gpfdw58csvgxj3vn9ym2g3zx7mfhaldyz5uvvrfajne8htj3asjqrp7h
+  - path_regex: talos/.*\.sops\.ya?ml
+    key_groups:
+      - age:
+          - age153gpfdw58csvgxj3vn9ym2g3zx7mfhaldyz5uvvrfajne8htj3asjqrp7h
