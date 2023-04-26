@@ -72,8 +72,6 @@ controlPlane:
             rotate-server-certificates: "true"
             feature-gates: GracefulNodeShutdown=true,MixedProtocolLBService=true
       cluster:
-        proxy:
-          disabled: true
         extraManifests:
           - https://raw.githubusercontent.com/VazardAU/home-ops/main/talos/integrations/cert-approver/cert-approver.yaml
           - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
@@ -85,6 +83,7 @@ controlPlane:
           - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
           - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
           - https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
+          - https://github.com/kubernetes-sigs/gateway-api/releases/download/v0.6.2/standard-install.yaml
 worker:
   patches:
     - |-
